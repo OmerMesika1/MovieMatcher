@@ -4,7 +4,6 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    background-color: #022C43;
     color: white;
     text-align: center;
     font-size: 24px;
@@ -15,6 +14,23 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    background-color: #022C43;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-gif-url, url('./static/bg_gif_1.gif'));
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
 }
 
 #landingPage p {

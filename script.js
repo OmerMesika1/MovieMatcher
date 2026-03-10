@@ -1,3 +1,7 @@
+// Pick a random background GIF (1, 2, or 3) and set it as a CSS variable for the body::before
+const randomGifNumber = Math.floor(Math.random() * 3) + 1;
+document.documentElement.style.setProperty('--bg-gif-url', `url('./static/bg_gif_${randomGifNumber}.gif')`);
+
 let user_answers = {
     "vibe": "any",
     "focus_level": 5,
@@ -121,7 +125,11 @@ move_to_results.addEventListener("click", () => {
     getMovies()
 })
 function getMovies() {
-    fetch("http://localhost:8000/recommend", {
+    const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:')
+        ? "http://localhost:8000"
+        : "";
+
+    fetch(`${API_BASE_URL}/recommend`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -147,7 +155,6 @@ function getMovies() {
 }
 retry_button.addEventListener("click", () => {
     movingFoward(error, loading)
-    /* adding cooldown 5 seconds */
     setTimeout(() => {
         getMovies()
     }, 5000)

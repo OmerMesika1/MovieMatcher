@@ -1,0 +1,130 @@
+<html dir="rtl" lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Matcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="landingPage">
+        <h1>Movie Matcher - סרט לכל תרחיש</h1>
+        <p>מצא את הסרט המושלם עבורך</p>
+        <button id="move_to_questions">התחל</button>
+    </section>
+    <section id="questions">
+        <section id="q1" class="hidden">
+            <form action="">
+                <label>איך המצב רוח שלך?</label><br>
+                <div class="radio-group">
+                    <input type="radio" id="vibe_chill" name="vibe" value="chill">
+                    <label for="vibe_chill">רגוע ושליו</label>
+
+                    <input type="radio" id="vibe_exciting" name="vibe" value="exciting">
+                    <label for="vibe_exciting">נרגש ומלא אדרנלין</label>
+
+                    <input type="radio" id="vibe_dark" name="vibe" value="dark">
+                    <label for="vibe_dark">אפל ומסתורי</label>
+
+                    <input type="radio" id="vibe_funny" name="vibe" value="funny">
+                    <label for="vibe_funny">קליל ומצחיק</label>
+                </div>
+            </form>
+            <button id="move_to_q2">הבא</button>
+        </section>
+        <section id="q2" class="hidden">
+            <label for="focus_level">מהי רמת הריכוז שלך?</label><br>
+            <div style="display: flex; justify-content: space-between; width: 300px; margin-top: 10px;">
+                <span style="font-size: 14px;">רעשי רקע</span>
+                <span style="font-size: 14px;">עיניים מרותקות למסך</span>
+            </div>
+            <input type="range" id="focus_level" name="focus_level" min="1" max="10" value="5" style="width: 300px;">
+            <br>
+            <button id="move_to_q3">הבא</button>
+        </section>
+        <section id="q3" class="hidden">
+            <label for="company">עם מי אתה צופה בסרט?</label>
+            <br>
+            <div class="radio-group">
+                <input type="radio" id="company_alone" name="company" value="alone">
+                <label for="company_alone">לבד</label>
+                <input type="radio" id="company_partner" name="company" value="partner">
+                <label for="company_partner">בן/בת זוג</label>
+                <input type="radio" id="company_friends" name="company" value="friends">
+                <label for="company_friends">חברים</label>
+                <input type="radio" id="company_family" name="company" value="family">
+                <label for="company_family">משפחה</label>
+            </div>
+            <button id="move_to_q4">הבא</button>
+        </section>
+        <section id="q4" class="hidden">
+            <label>איזה ז'אנרים מעניינים אותך?</label><br><br>
+
+            <label for="genre_axis_1">אקשן לעומת דרמה:</label><br>
+            <div style="display: flex; justify-content: space-between; width: 300px; margin-top: 5px;">
+                <span style="font-size: 14px;">הרבה דרמה</span>
+                <span style="font-size: 14px;">הרבה אקשן</span>
+            </div>
+            <input type="range" id="genre_axis_1" name="genre_action_drama" min="-100" max="100" value="0"
+                style="width: 300px;">
+            <br><br>
+
+            <label for="genre_axis_2">קומדיה לעומת אימה:</label><br>
+            <div style="display: flex; justify-content: space-between; width: 300px; margin-top: 5px;">
+                <span style="font-size: 14px;">קומדיה טהורה</span>
+                <span style="font-size: 14px;">אימה טהורה</span>
+            </div>
+            <input type="range" id="genre_axis_2" name="genre_comedy_horror" min="-100" max="100" value="0"
+                style="width: 300px;">
+            <br><br>
+            <button id="move_to_q5">הבא</button>
+        </section>
+        <section id="q5" class="hidden">
+            <label for="context">השאר הודעה למערכת ההתאמה שלנו</label>
+            <br>
+            <textarea id="context" name="context" rows="4" cols="50"></textarea>
+            <br>
+            <button id="move_to_results">סיום</button>
+        </section>
+    </section>
+    <section id="loading" class="hidden">
+        <h1>המתן בזמן שאנחנו מוצאים לך התאמה...</h1>
+        <img src="./static/temp.gif" alt="Loading..." style="width: 300px; border-radius: 12px; margin-top: 20px;">
+    </section>
+    <section id="error" class="hidden">
+        <h1>שגיאה</h1>
+        <p>שגיאה בהתאמת הסרט, נסה שוב מאוחר יותר</p>
+        <button id="retry_button">נסה שנית</button>
+    </section>
+    <section id="results" class="hidden">
+        <h1>תוצאות</h1>
+        <div id="results_container">
+            <div id="movie1" class="movie">
+                <img src="" class="poster" alt="movie1_poster" id="movie1_poster">
+                <h2 class="movie_title"></h2>
+                <p class="movie_description"></p>
+                <p class="movie_why_it_fits"></p>
+            </div>
+            <div id="movie2" class="movie">
+                <img src="" class="poster" alt="movie2_poster" id="movie2_poster">
+                <h2 class="movie_title"></h2>
+                <p class="movie_description"></p>
+                <p class="movie_why_it_fits"></p>
+            </div>
+            <div id="movie3" class="movie">
+                <img src="" class="poster" alt="movie3_poster" id="movie3_poster">
+                <h2 class="movie_title"></h2>
+                <p class="movie_description"></p>
+                <p class="movie_why_it_fits"></p>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

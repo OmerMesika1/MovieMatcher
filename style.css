@@ -1,0 +1,252 @@
+.hidden {
+    display: none;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #022C43;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#landingPage p {
+    font-size: 48px;
+    margin-top: 0;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+}
+
+button {
+    font-family: 'Rubik', sans-serif;
+    font-size: 80px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffb700;
+    color: white;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.1s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    background-color: #115173;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Custom Radio Button Styling */
+input[type="radio"] {
+    display: none;
+    /* Hide default radio buttons */
+}
+
+input[type="radio"]+label {
+    display: inline-block;
+    background-color: #115173;
+    /* Slightly lighter than background */
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    width: 200px;
+    /* Fixed width for uniformity */
+    font-size: 22px;
+}
+
+input[type="radio"]+label:hover {
+    background-color: #1a6f9c;
+}
+
+/* Checked radio design */
+input[type="radio"]:checked+label {
+    border-color: #ffb700;
+    background-color: #0d405b;
+    box-shadow: 0 0 10px rgba(255, 183, 0, 0.5);
+}
+
+/* Form layout adjustment for boxes */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form>label {
+    margin-bottom: 15px;
+    /* Spacing below main question labels */
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    /* Add specific gap between items */
+    justify-content: center;
+}
+
+input[type="radio"]+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #115173;
+    padding: 15px;
+    margin: 0;
+    /* Remove margin as we use gap now */
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    width: 200px;
+    /* Fixed width */
+    height: 60px;
+    /* Fixed height for uniformity */
+    font-size: 20px;
+    text-align: center;
+}
+
+/* --- Range Slider Styling --- */
+input[type="range"] {
+    -webkit-appearance: none;
+    /* Required to override default browser styling */
+    appearance: none;
+    width: 300px;
+    height: 12px;
+    background: #115173;
+    border-radius: 6px;
+    outline: none;
+    margin: 15px auto;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    /* Creates an inner shadow for a "sunken" track effect */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffb700;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(255, 183, 0, 0.7);
+    /* Adds a glowing outer shadow to the thumb */
+    transition: transform 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    /* Enlarges the thumb by 20% on hover */
+}
+
+/* --- Textarea Styling --- */
+textarea {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    color: white;
+    background-color: #0d405b;
+    padding: 15px;
+    border: 2px solid #115173;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    resize: vertical;
+    /* Restricts the user to only resizing the textarea vertically */
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #ffb700;
+    box-shadow: 0 0 10px rgba(255, 183, 0, 0.5);
+    background-color: #115173;
+}
+
+.poster {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#results_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.movie {
+    background-color: #115173;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.movie:hover {
+    transform: translateY(-5px);
+    border-color: #ffb700;
+}
+
+.movie h2 {
+    font-size: 24px;
+    margin: 15px 0 10px;
+    color: #ffb700;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.movie p {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 8px 0;
+    width: 100%;
+}
+
+.movie strong {
+    color: #ffb700;
+}
+
+#loading {
+
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="26" font-size="24">🍿</text></svg>'), auto;
+
+}

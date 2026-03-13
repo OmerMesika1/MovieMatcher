@@ -52,6 +52,7 @@ h1 {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
+/* Here we style the big yellow buttons you see on the screen. */
 button {
     font-family: 'Rubik', sans-serif;
     font-size: 80px;
@@ -75,16 +76,14 @@ button:active {
     transform: scale(0.95);
 }
 
-/* Custom Radio Button Styling */
 input[type="radio"] {
     display: none;
-    /* Hide default radio buttons */
 }
 
+/* We make the radio buttons look like clickable blocks. */
 input[type="radio"]+label {
     display: inline-block;
     background-color: #115173;
-    /* Slightly lighter than background */
     padding: 15px 30px;
     margin: 10px;
     border-radius: 8px;
@@ -92,7 +91,6 @@ input[type="radio"]+label {
     border: 3px solid transparent;
     transition: all 0.3s ease;
     width: 200px;
-    /* Fixed width for uniformity */
     font-size: 22px;
 }
 
@@ -100,14 +98,12 @@ input[type="radio"]+label:hover {
     background-color: #1a6f9c;
 }
 
-/* Checked radio design */
 input[type="radio"]:checked+label {
     border-color: #ffb700;
     background-color: #0d405b;
     box-shadow: 0 0 10px rgba(255, 183, 0, 0.5);
 }
 
-/* Form layout adjustment for boxes */
 form {
     display: flex;
     flex-direction: column;
@@ -118,14 +114,12 @@ form {
 
 form>label {
     margin-bottom: 15px;
-    /* Spacing below main question labels */
 }
 
 .radio-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    /* Add specific gap between items */
     justify-content: center;
 }
 
@@ -136,23 +130,18 @@ input[type="radio"]+label {
     background-color: #115173;
     padding: 15px;
     margin: 0;
-    /* Remove margin as we use gap now */
     border-radius: 8px;
     cursor: pointer;
     border: 3px solid transparent;
     transition: all 0.3s ease;
     width: 200px;
-    /* Fixed width */
     height: 60px;
-    /* Fixed height for uniformity */
     font-size: 20px;
     text-align: center;
 }
 
-/* --- Range Slider Styling --- */
 input[type="range"] {
     -webkit-appearance: none;
-    /* Required to override default browser styling */
     appearance: none;
     width: 300px;
     height: 12px;
@@ -161,7 +150,6 @@ input[type="range"] {
     outline: none;
     margin: 15px auto;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-    /* Creates an inner shadow for a "sunken" track effect */
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -173,16 +161,14 @@ input[type="range"]::-webkit-slider-thumb {
     background: #ffb700;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(255, 183, 0, 0.7);
-    /* Adds a glowing outer shadow to the thumb */
     transition: transform 0.2s;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.2);
-    /* Enlarges the thumb by 20% on hover */
 }
 
-/* --- Textarea Styling --- */
+/* This styles the text box where the user can write notes. */
 textarea {
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
@@ -194,7 +180,6 @@ textarea {
     width: 80%;
     max-width: 500px;
     resize: vertical;
-    /* Restricts the user to only resizing the textarea vertically */
     outline: none;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
@@ -223,6 +208,7 @@ textarea:focus {
     margin-top: 20px;
 }
 
+/* These are the movie cards that show up at the end. */
 .movie {
     background-color: #115173;
     border-radius: 12px;
@@ -261,6 +247,7 @@ textarea:focus {
     color: #ffb700;
 }
 
+/* This changes the mouse cursor to popcorn when the app is thinking. */
 #loading {
 
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="26" font-size="24">🍿</text></svg>'), auto;

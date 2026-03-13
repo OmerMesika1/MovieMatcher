@@ -1,4 +1,4 @@
-// Pick a random background GIF (1, 2, or 3) and set it as a CSS variable for the body::before
+// This code chooses a random background and sets up the app.
 const randomGifNumber = Math.floor(Math.random() * 3) + 1;
 document.documentElement.style.setProperty('--bg-gif-url', `url('./static/bg_gif_${randomGifNumber}.gif')`);
 
@@ -20,6 +20,8 @@ function movingFoward(current_section, next_section) {
     hide_section(current_section)
     show_section(next_section)
 }
+
+// We save the user choices into our answer list here.
 function saveResults(number, answer1, answer2 = null) {
     const numbers_to_answers = {
         1: "vibe",
@@ -37,6 +39,8 @@ function saveResults(number, answer1, answer2 = null) {
         user_answers["comedy_horror"] = answer2
     }
 }
+
+// This function puts the movie details on the page for the user to see.
 function processResults(data) {
     const movie1 = document.getElementById("movie1")
     const movie2 = document.getElementById("movie2")

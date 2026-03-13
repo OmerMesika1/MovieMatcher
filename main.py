@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 import json
 import requests
 from fastapi.staticfiles import StaticFiles
+
+# This file is the backend. It talks to the AI to get movies.
 load_dotenv()
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 app = FastAPI()
@@ -21,6 +23,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# This class defines how the user's survey data looks.
 class MovieSurvery(BaseModel):
     vibe: str
     focus_level: int
@@ -30,6 +33,7 @@ class MovieSurvery(BaseModel):
     context: str
     
 
+# This part gets the user's answers and asks the AI for 3 movies.
 @app.post("/recommend")
 async def recommend(movie_survey: MovieSurvery):
     prompt = f"""
@@ -56,12 +60,13 @@ async def recommend(movie_survey: MovieSurvery):
     movie_data = json.loads(cleaned_response)
     for movie in movie_data:
         if get_movie_poster(movie["title"]) == False:
-            movie["poster"] = "no_available_poster"
+            movie["poster"] = "no_available_poster" # Edge case
         else:
             movie["poster"] = get_movie_poster(movie["title"])
     return { "status": "success", "data": movie_data }    
 
 
+# These routes help show the website pages to the user.
 @app.get("/")
 def read_root():
     return FileResponse("index.html")
@@ -74,7 +79,7 @@ def get_style():
 def get_script():
     return FileResponse("script.js")
 
-#get movie poster from TMDb API:
+# This small function finds the movie picture from a movie website.
 def get_movie_poster(movie_title: str):
     url = f"https://api.themoviedb.org/3/search/movie?api_key={os.getenv('TMDB_API_KEY')}&query={movie_title}"
     response = requests.get(url)
@@ -84,3 +89,4 @@ def get_movie_poster(movie_title: str):
         return f"https://image.tmdb.org/t/p/w500{poster_path}"
     else:
         return False
+
